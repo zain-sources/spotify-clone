@@ -148,7 +148,7 @@ body {
     margin: 20px;
 }
 
-.left-footer button div{
+.left-footer button div {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -156,7 +156,7 @@ body {
 
 
 
-                                                   
+
 /* ------------Right side---------- */
 
 
@@ -164,6 +164,12 @@ body {
     height: 100%;
     background-color: #121212;
     box-sizing: border-box;
+    position: relative;
+    overflow-y: auto;
+    scrollbar-color: rgba(255, 255, 255, 0.247) transparent;
+    scroll-behavior: smooth;  
+    scrollbar-width: thin;
+
 }
 
 .right-side-nav {
@@ -171,9 +177,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    border-bottom: 1px solid #828080;
+    border-bottom: 2px solid black;
     box-sizing: border-box;
     padding: 5px 20px;
+    position: sticky;
+    top: 0;
+    background-color: #121212;
+    z-index: 1;
+
 }
 
 .right-nav-arrows {
@@ -182,7 +193,7 @@ body {
     padding: 10px;
 }
 
-.right-nav-arrows button{
+.right-nav-arrows button {
     width: 35px;
     height: 35px;
     background-color: black;
@@ -190,13 +201,13 @@ body {
     border-radius: 50%;
 }
 
-.right-nav-arrows button span{
+.right-nav-arrows button span {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.right-nav-arrows button img{
+.right-nav-arrows button img {
     width: 20px;
 }
 
@@ -205,10 +216,10 @@ body {
     gap: 10px;
 }
 
-.right-nav-btn button{
+.right-nav-btn button {
     background-color: black;
     border-radius: 50px;
-    padding: 13px 25px;
+    padding: 10px 20px;
     font-size: large;
     font-weight: 600;
     transition: all 0.5s ease;
@@ -216,20 +227,20 @@ body {
     border: 1px solid white;
 }
 
-.right-nav-btn button:last-child{
+.right-nav-btn button:last-child {
     background-color: white;
     color: black;
     border: 1px solid black;
 }
 
-.right-nav-btn button:last-child:hover{
+.right-nav-btn button:last-child:hover {
     background-color: rgb(3, 3, 3);
     color: white;
     border: 1px solid white;
     transform: scale(1.05);
 }
 
-.right-nav-btn button:first-child:hover{
+.right-nav-btn button:first-child:hover {
     background-color: white;
     color: black;
     transform: scale(1.05);
@@ -251,18 +262,18 @@ body {
     padding: 10px;
 }
 
-.right-card-heading  a:first-child {
+.right-card-heading a:first-child {
     font-size: 24px;
     font-weight: 600;
     text-decoration: none;
 }
 
-.right-card-heading  a:last-child {
+.right-card-heading a:last-child {
     font-size: 16px;
     text-decoration: none;
 }
 
-.right-card-heading a:hover{
+.right-card-heading a:hover {
     text-decoration: underline;
     text-underline-offset: 1px;
 }
@@ -270,12 +281,12 @@ body {
 .right-card-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    height: 270px;
+    gap: 10px;
 }
 
 
 .right-card {
-    width: 180px;
+    aspect-ratio: 180 / 270;
     box-sizing: border-box;
     padding: 10px;
     border-radius: 10px;
@@ -297,11 +308,13 @@ body {
     border-radius: 10px;
 }
 
+
 .right-card h2 {
     font-size: 16px;
     font-weight: 350;
     margin: 5px 0;
 }
+
 .right-card p {
     font-size: 12px;
     font-weight: 200;
@@ -312,8 +325,8 @@ body {
     position: absolute;
     bottom: 110px;
     right: 25px;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-style: none;
     border-radius: 50%;
     background-color: #1ed760;
@@ -321,7 +334,7 @@ body {
     font-size: 12px;
     font-weight: 200;
     margin: 5px 0;
-    transition: all .5s .2s cubic-bezier(0,.55,0,1.04);
+    transition: all .5s .2s cubic-bezier(0, .55, 0, 1.04);
     transform: scale(0) translate(0, -100px);
     filter: opacity(0);
 }
@@ -331,9 +344,13 @@ body {
     filter: opacity(1);
 }
 
-.right-card button:active {
-    transition: all .1s ease;
-    transform: scale(1.2) ;
+.right-card button:active>img {
+    transform: scale(1.2);
+
+}
+
+.right-card button:hover {
+    transform: scale(1);
 }
 
 
@@ -342,8 +359,24 @@ body {
     height: 30px;
 }
 
-.artist-cards > * > img {
-    border: 2px solid #ffffff;
+
+.artist-cards-section {
+    background-image: linear-gradient(to bottom, #1e1e1e, #121212);
+}
+
+.artist-cards-section>div:last-child>*>img {
     border-radius: 50%;
     aspect-ratio: 1 / 1;
+    box-shadow: 0 0 10px 0px black;
+    border: 1px solid black;
+    transition: all .5s ease;
+}
+
+.artist-cards-section>div:last-child>* {
+    background-color: transparent;
+}
+
+.artist-cards-section>div:last-child>*>img:hover {
+    box-shadow: 0 0 10px 0px rgb(48, 48, 48);
+    transform: scale(1.1);
 }
