@@ -170,7 +170,6 @@ body {
     scrollbar-color: rgba(255, 255, 255, 0.247) transparent;
     scroll-behavior: smooth;
     scrollbar-width: thin;
-
 }
 
 .right-side-nav {
@@ -399,8 +398,9 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 1px solid green;
+    /* border: 1px solid rgba(0, 128, 0, 0.486); */
     border-radius: 15px;
+    box-shadow: 0 0 6px -2px white;
 }
 
 .right-playbar > div:first-child{
