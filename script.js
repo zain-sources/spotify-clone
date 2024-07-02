@@ -54,10 +54,23 @@ function pauseSong() {
     is_playing = false;
 }
 
+
+function changeSong(url) {
+    if (is_playing){
+        pauseSong()
+        player.src = url
+        playSong()
+    } else {
+        player.src = url
+    }
+}
+
+
+
+
 function updateCircle(percentage) {
     document.getElementById('progress-circle').style.left = `calc(${percentage}% - 7px)`
 }
-
 
 
 function updateTime(currentTime, duration) {
@@ -72,6 +85,8 @@ function formatTime(time) {
     const formattedSeconds = remainingSeconds.toString().padStart(2, '0');
     return `${formattedMinutes}:${formattedSeconds}`;
 }
+
+
 
 player.addEventListener("ended", function () {
     pauseSong()
