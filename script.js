@@ -66,6 +66,11 @@ function changeSong(url) {
 }
 
 
+function changeSongCard(src, title, artist) {
+    document.getElementById("song-card").querySelector("img").src = src
+    document.getElementById("song-card").querySelector("h2").innerText = title
+    document.getElementById("song-card").querySelector("p").innerText = artist
+}
 
 
 function updateCircle(percentage) {
