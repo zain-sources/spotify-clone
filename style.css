@@ -403,9 +403,10 @@ body {
     box-shadow: 0 0 6px -2px white;
 }
 
+
 .right-playbar > div:first-child{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .playbar-song-card {
@@ -413,7 +414,6 @@ body {
     gap: 10px;
     padding: 10px;
     align-items: center;
-
 }
 
 .playbar-song-card img {
@@ -437,6 +437,14 @@ body {
     gap: 10px;
     padding: 10px;
     align-items: center;
+    justify-content: center;
+}
+
+.playbar-buttons > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .playbar-buttons img {
@@ -453,6 +461,8 @@ body {
     gap: 10px;
     padding: 10px;
     align-items: center;
+    justify-content: end;
+    box-sizing: border-box;
 }
 
 .time-line-container {
