@@ -444,6 +444,10 @@ body {
     height: 40px;
 }
 
+#pause-btn {
+    display: none;
+}
+
 .playbar-time {
     display: flex;
     gap: 10px;
