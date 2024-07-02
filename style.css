@@ -473,8 +473,18 @@ body {
     width: 14px;
     height: 14px;
     background-color: green;
+    cursor: pointer;
+    transition: transform .5s ease, background-color .1s ease;
     border-radius: 50%;
     position: relative;
     top: -6px;
     left: calc(0% - 7px);
+}
+
+.playbar-circle:active {
+    transform: scale(1.2);
+}
+
+.playbar-circle:hover {
+    background-color: rgb(2, 255, 2);
 }
