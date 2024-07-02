@@ -466,10 +466,11 @@ body {
 }
 
 .time-line-container {
-    padding: 10px;
+    padding: 10px 0px;
     box-sizing: border-box;
     cursor: pointer;
-
+    width: 95%;
+    margin: 0 auto;
 }
 
 .time-line {

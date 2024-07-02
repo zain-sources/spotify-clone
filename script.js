@@ -20,7 +20,7 @@ player.addEventListener("timeupdate", function () {
     updateTime(current_time, duration)
 })
 
-document.getElementById("time-line").addEventListener("click", function (e) {
+document.getElementById("time-line-container").addEventListener("click", function (e) {
     const rect = e.target.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const width = rect.width;
@@ -73,5 +73,8 @@ function formatTime(time) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
+player.addEventListener("ended", function () {
+    pauseSong()
+});
 
 
