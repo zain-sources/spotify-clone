@@ -21,6 +21,22 @@ player.addEventListener("timeupdate", function() {
     duration = player.duration
     position = current_time / duration * 100
     document.getElementById('progress-circle').style.left = `calc(${position}% - 7px)`
+    updateTime(current_time, duration)
 })
 
 
+
+
+
+function formatTime(time) {
+    const seconds = Math.floor(time);
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = remainingSeconds.toString().padStart(2, '0');
+    return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+function updateTime(currentTime, duration) {
+    document.getElementById('song-time').innerText = `${formatTime(currentTime)} / ${formatTime(duration)}`
+}
