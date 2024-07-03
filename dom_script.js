@@ -1,3 +1,5 @@
+
+
 var sections = [
     {
         section_name: 'Popular Artists',
@@ -83,42 +85,42 @@ var sections = [
                 album: "I Don't Wanna Wait",
                 artist: "David Guetta",
                 img: "public/images/songs/I Don't Wanna Wait.jpg",
-                song_url: "public/images/songs/I Don't Wanna Wait.m4a"
+                song_url: "public/audios/songs/I Don't Wanna Wait.m4a"
             },
             {
                 title: "LET GO",
                 album: "LET GO",
                 artist: "Central Cee",
                 img: "public/images/songs/let go.jpeg",
-                song_url: "public/images/songs/LET GO.m4a"
+                song_url: "public/audios/songs/LET GO.m4a"
             },
             {
                 title: "Drugs From Amsterdam",
                 album: "Mau P",
                 artist: "Mau P",
                 img: "public/images/songs/Drugs From Amsterdam.jpg",
-                song_url: "public/images/songs/Drugs From Amsterdam.m4a"
+                song_url: "public/audios/songs/Drugs From Amsterdam.m4a"
             },
             {
                 title: "Element",
                 album: "Meet The Woo 2",
                 artist: "Pop Smoke",
                 img: "public/images/songs/Element.jpg",
-                song_url: "public/images/songs/Element.m4a"
+                song_url: "public/audios/songs/Element.m4a"
             },
             {
                 title: "Ric Flair Drip (with Metro Boomin",
                 album: "Without Warning",
                 artist: "Offset & Metro Boomin",
                 img: "public/images/songs/Ric Flair Drip (with Metro Boomin.jpeg",
-                song_url: "public/images/songs/Ric Flair Drip (with Metro Boomin.m4a"
+                song_url: "public/audios/songs/Ric Flair Drip (with Metro Boomin.m4a"
             },
             {
                 title: "Tití Me Preguntó",
                 album: "Un Verano Sin Ti",
                 artist: "Bad Bunny",
                 img: "public/images/songs/Tití Me Preguntó.jpg",
-                song_url: "public/images/songs/Tití Me Preguntó.m4a"
+                song_url: "public/audios/songs/Tití Me Preguntó.m4a"
             }
 
         ]
@@ -146,7 +148,7 @@ let artistSectionPromise = new Promise((resolve, reject) => {
     let artistSection = sectionDivCreator(sections[0].section_name, sections[0].section_url, sections[0].section_type);
     artistSection.classList.add('artist-cards-section');
     let container = artistSection.querySelector('.right-card-container');
-    sections[0].items.forEach((item)=>{
+    sections[0].items.forEach((item) => {
         container.innerHTML += `
         <div class="right-card">
             <img src="${item.img}" alt="${item.title}">
@@ -162,7 +164,7 @@ let artistSectionPromise = new Promise((resolve, reject) => {
 let albumSectionPromise = new Promise((resolve, reject) => {
     let albumSection = sectionDivCreator(sections[1].section_name, sections[1].section_url, sections[1].section_type);
     let container = albumSection.querySelector('.right-card-container');
-    sections[1].items.forEach((item)=>{
+    sections[1].items.forEach((item) => {
         container.innerHTML += `
         <div class="right-card">
             <img src="${item.img}" alt="${item.title}">
@@ -178,7 +180,7 @@ let albumSectionPromise = new Promise((resolve, reject) => {
 let songSectionPromise = new Promise((resolve, reject) => {
     let songSection = sectionDivCreator(sections[2].section_name, sections[2].section_url, sections[2].section_type);
     let container = songSection.querySelector('.right-card-container');
-    sections[2].items.forEach((item)=>{
+    sections[2].items.forEach((item) => {
         container.innerHTML += `
         <div class="right-card" data-songUrl="${item.song_url}" data-title="${item.title}" data-artist="${item.artist}" data-album="${item.album}">
             <img src="${item.img}" alt="${item.title}">
@@ -192,9 +194,22 @@ let songSectionPromise = new Promise((resolve, reject) => {
 });
 
 
-Promise.all([artistSectionPromise, albumSectionPromise, songSectionPromise]).then((values)=>{
+Promise.all([artistSectionPromise, albumSectionPromise, songSectionPromise]).then((values) => {
     let playbar = document.querySelector('.playbar-container');
-    values.forEach((value)=>{
+    values.forEach((value) => {
         document.getElementById("right-side-container").insertBefore(value, playbar);
     })
+}).then(() => {
+    let song_cards = document.getElementById("songs").querySelectorAll('.right-card')
+    song_cards.forEach((card) => {
+        card.addEventListener('click', () => {
+            let songUrl = card.getAttribute('data-songUrl');
+            let title = card.getAttribute('data-title');
+            let artist = card.getAttribute('data-artist');
+            let img_url = card.querySelector('img').src;
+            changeSong(songUrl);
+            changeSongCard(src = img_url, title = title, artist = artist);
+            playSong();
+        });
+    });
 })

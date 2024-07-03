@@ -385,13 +385,16 @@ body {
 /* playbar */
 .playbar-container {
     box-sizing: border-box;
-    position: relative;
     height: 105px;
     position: sticky;
     bottom: 2px;
     z-index: 2;
     padding: 5px;
+    bottom: 0;
+    transition: all .5s ease;
+    filter: opacity(0);
 }
+
 
 .right-playbar {
     background-color: black;
