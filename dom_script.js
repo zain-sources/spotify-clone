@@ -82,7 +82,7 @@ var sections = [
                 title: "I Don't Wanna Wait",
                 album: "I Don't Wanna Wait",
                 artist: "David Guetta",
-                img: "public/images/songs/thunder.jpg",
+                img: "public/images/songs/I Don't Wanna Wait.jpg",
                 song_url: "public/images/songs/I Don't Wanna Wait.m4a"
             },
             {
@@ -152,7 +152,7 @@ let artistSectionPromise = new Promise((resolve, reject) => {
             <img src="${item.img}" alt="${item.title}">
             <button><img src="public/images/icons/play.svg" alt=""></button>
             <h2>${item.title}</h2>
-            <p></p>
+            <p>${item.content}</p>
         </div>
         `
     })
@@ -168,7 +168,7 @@ let albumSectionPromise = new Promise((resolve, reject) => {
             <img src="${item.img}" alt="${item.title}">
             <button><img src="public/images/icons/play.svg" alt=""></button>
             <h2>${item.title}</h2>
-            <p>Artist</p>
+            <p>${item.content}</p>
         </div>
         `
     })
@@ -184,7 +184,7 @@ let songSectionPromise = new Promise((resolve, reject) => {
             <img src="${item.img}" alt="${item.title}">
             <button><img src="public/images/icons/play.svg" alt=""></button>
             <h2>${item.title}</h2>
-            <p>Artist</p>
+            <p>${item.artist}</p>
         </div>
         `
     })
@@ -193,8 +193,8 @@ let songSectionPromise = new Promise((resolve, reject) => {
 
 
 Promise.all([artistSectionPromise, albumSectionPromise, songSectionPromise]).then((values)=>{
-    
+    let playbar = document.querySelector('.playbar-container');
     values.forEach((value)=>{
-        document.getElementById("right-side").appendChild(value);
+        document.getElementById("right-side-container").insertBefore(value, playbar);
     })
 })

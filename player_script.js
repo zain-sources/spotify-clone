@@ -3,7 +3,6 @@ var is_playing = false;
 player.src = '';
 
 
-
 document.getElementById('play-btn').addEventListener('click', function () {
     playSong();
 });
