@@ -1,6 +1,6 @@
 var player = new Audio();
 var is_playing = false;
-player.src = '/public/audios/songs/audio.mp3';
+player.src = '';
 
 
 
@@ -19,6 +19,16 @@ player.addEventListener("timeupdate", function () {
     document.getElementById('progress-circle').style.left = `calc(${position}% - 7px)`
     updateTime(current_time, duration)
 })
+
+document.body.addEventListener("keydown", function (e) {
+    if (e.key === ' ') {
+        if (is_playing) {
+            pauseSong()
+        } else {
+            playSong()
+        }
+    }
+});
 
 document.getElementById("time-line-container").addEventListener("click", function (e) {
     const rect = e.target.getBoundingClientRect();
@@ -39,6 +49,16 @@ document.getElementById("time-line-container").addEventListener("click", functio
     }
 })
 
+document.getElementById("next-btn").addEventListener("click", function () {
+    changeSong('public/audios/songs/Thunder.m4a')
+    changeSongCard('public/images/songs/thunder.jpg', 'Thunder', 'Imagine Dragons')
+});
+
+
+player.addEventListener("ended", function () {
+    pauseSong()
+});
+
 
 function playSong() {
     player.play();
@@ -56,7 +76,7 @@ function pauseSong() {
 
 
 function changeSong(url) {
-    if (is_playing){
+    if (is_playing) {
         pauseSong()
         player.src = url
         playSong()
@@ -64,6 +84,7 @@ function changeSong(url) {
         player.src = url
     }
 }
+
 
 
 function changeSongCard(src, title, artist) {
@@ -90,11 +111,4 @@ function formatTime(time) {
     const formattedSeconds = remainingSeconds.toString().padStart(2, '0');
     return `${formattedMinutes}:${formattedSeconds}`;
 }
-
-
-
-player.addEventListener("ended", function () {
-    pauseSong()
-});
-
 
