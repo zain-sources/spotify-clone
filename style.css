@@ -158,8 +158,9 @@ body {
 
 
 /* ------------Right side---------- */
-
-
+#nav-hamburgar {
+    display: none;
+}
 
 .right-content-box {
     height: 100%;
@@ -220,7 +221,6 @@ body {
     background-color: black;
     border-radius: 50px;
     padding: 10px 20px;
-    font-size: large;
     font-weight: 600;
     transition: all 0.5s ease;
     box-sizing: border-box;
@@ -294,7 +294,7 @@ body {
     transition: all .5s ease;
     background-color: #0f0f0f;
     padding: 10px;
-    width: 100%;
+    font-size: 16px;
 }
 
 .right-card:hover {
@@ -311,13 +311,13 @@ body {
 
 
 .right-card h2 {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 350;
     margin: 5px 0;
 }
 
 .right-card p {
-    font-size: 12px;
+    font-size: 0.8em;
     font-weight: 200;
     margin: 5px 0;
 }
@@ -501,4 +501,85 @@ body {
 
 .playbar-circle:hover {
     background-color: rgb(2, 255, 2);
+}
+
+
+
+@media only screen and (max-width: 1200px){
+    .left-side {
+        display: none;
+    }
+    #nav-arrows {
+        display: none;
+    }
+    #nav-hamburgar {
+        display: block;
+    }
+    #nav-hamburgar img {
+        width: 40px;
+    }
+    .right-side {
+        width: 100vw;
+        margin: 0;
+        height: 100vh;
+        background-color: green;
+    }
+    .right-content-box {
+        border-radius: 0;
+    }
+    .artist-cards-section > .right-card-container{
+        display: inline-flex;
+        flex-direction: row;
+        overflow-x: scroll;
+    }
+    .artist-cards-section > .right-card-container .right-card > img{
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px){
+    .right-card-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .artist-cards-section > .right-card-container .right-card{
+        font-size: 14px;
+    }
+    .artist-cards-section > .right-card-container .right-card > img{
+        width: 130px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px){
+    .right-card-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .artist-cards-section > .right-card-container .right-card{
+        font-size: 12px;
+    }
+    .artist-cards-section > .right-card-container .right-card > img{
+        width: 110px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .artist-cards-section > .right-card-container .right-card{
+        font-size: 12px;
+    }
+
+    .artist-cards-section > .right-card-container .right-card > img{
+        width: 100px;
+    }
+
+    .right-card-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* .right-card-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .right-nav-btn > button{
+        padding: 7px 12px;
+    }  */
+
 }
