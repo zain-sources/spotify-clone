@@ -13,7 +13,10 @@
     <div class="container">
         <section class="left-side">
             <nav class="left-side-nav rounded">
-                <img src="public/images/icons/logo.svg" alt="Spotify logo">
+                <div class="left-side-nav-img">
+                    <img src="public/images/icons/logo.svg" alt="Spotify logo">
+                    <img id="left-nav-close" src="public/images/icons/close.svg" alt="close">
+                </div>
                 <ul>
                     <li><a href="#">
                             <img src="public/images/icons/home.svg" alt="Home">
@@ -233,11 +236,13 @@
                                     <img id="play-btn" src="public/images/icons/play-circle.svg" alt="play">
                                     <img id="pause-btn" src="public/images/icons/pause.svg" alt="pause">
                                     <img id="next-btn" src="public/images/icons/next.svg" alt="next">
-
                                 </div>
                             </div>
                             <div class="playbar-time">
-                                <span id="song-time">00:00 / 00:00</span>
+                                <!-- <span id="song-time">00:00 / 00:00</span> -->
+                                <span id="song-time-c">00:00</span>
+                                <span id="song-time-slash"> / </span>
+                                <span id="song-time-d">00:00</span>
                             </div>
                         </div>
                         <div class="time-line-container" id="time-line-container">

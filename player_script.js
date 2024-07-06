@@ -162,8 +162,14 @@ function updateCircle(percentage) {
 }
 
 
+// function updateTime(currentTime, duration) {
+//     document.getElementById('song-time').innerText = `${formatTime(currentTime)} / ${formatTime(duration)}`
+//     document.getElementById('song-time').innerText = `${formatTime(currentTime)} / ${formatTime(duration)}`
+// }
+
 function updateTime(currentTime, duration) {
-    document.getElementById('song-time').innerText = `${formatTime(currentTime)} / ${formatTime(duration)}`
+    document.getElementById('song-time-c').innerText = `${formatTime(currentTime)}`
+    document.getElementById('song-time-d').innerText = `${formatTime(duration)}`
 }
 
 function formatTime(time) {

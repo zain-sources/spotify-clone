@@ -213,3 +213,15 @@ Promise.all([artistSectionPromise, albumSectionPromise, songSectionPromise]).the
         });
     });
 })
+
+
+
+document.getElementById("nav-hamburgar").addEventListener('click', () => {
+    document.querySelector(".left-side").style.transform = "translateX(0)";
+    document.querySelector(".right-side").style.filter = "blur(5px)";
+});
+
+document.getElementById("left-nav-close").addEventListener('click', () => {
+    document.querySelector(".left-side").style.transform = "translateX(-110%)";
+    document.querySelector(".right-side").style.filter = "blur(0)";
+});
